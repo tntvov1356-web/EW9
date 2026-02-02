@@ -7,37 +7,38 @@ interface ResultScreenProps {
 }
 
 const ResultScreen: React.FC<ResultScreenProps> = ({ result, onBack }) => {
-  // Debug：檢查目前接收到的資料結構
-  console.log("ResultScreen 顯示數據:", result);
-
   return (
-    // 使用 h-screen 並加上 padding-top 考慮安全區域
     <div className="flex flex-col h-screen bg-white relative font-sans overflow-hidden">
       
-      {/* 1. 頂部裝飾標籤 - 修正：改為 relative 並增加 padding 避免擋住手機時間 */}
-      <div className="px-8 pt-16 pb-4 flex-shrink-0 flex justify-start items-center z-10">
+      {/* 1. 安全區域墊片 (避開手機狀態列) */}
+      <div className="h-14 w-full flex-shrink-0" />
+
+      {/* 2. 頂部裝飾標籤 - 增加 z-index 確保在最前 */}
+      <div className="px-8 flex-shrink-0 z-20">
         <span className="bg-green-100 text-green-600 text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-[0.2em] shadow-sm">
           Final Decision
         </span>
       </div>
 
-      {/* 2. 中央內容區 - 使用 flex-1 並微調 justify-center */}
-      <div className="flex-1 flex flex-col justify-center px-8 -mt-10"> {/* -mt-10 將內容稍微往上提一點，視覺更平衡 */}
+      {/* 3. 主要內容區 - 移除 justify-center，改用 mt 控制位置 */}
+      <div className="flex-1 flex flex-col px-8 mt-12 overflow-y-auto">
         
+        {/* 你今日要食 */}
         <div className="mb-3 flex items-center gap-2">
           <div className="h-[2px] w-5 bg-gray-300"></div>
           <p className="text-gray-400 text-[10px] font-black uppercase tracking-[0.15em]">你今日要食</p>
         </div>
         
-        <h1 className="text-6xl font-black text-gray-900 leading-tight mb-8 tracking-tighter break-words">
+        {/* 菜式名 */}
+        <h1 className="text-6xl font-black text-gray-900 leading-tight mb-10 tracking-tighter break-words">
           {result.categoryName || '未知菜式'}
         </h1>
 
-        {/* 評語對話框 */}
-        <div className="bg-gray-900 rounded-[2.5rem] p-8 relative shadow-2xl border-b-[10px] border-green-500">
+        {/* 評語對話框 - 增加下方外邊距避免太貼近按鈕 */}
+        <div className="bg-gray-900 rounded-[2.5rem] p-8 relative shadow-2xl border-b-[10px] border-green-500 mb-10">
           
-          {/* 懸浮狗頭頭像 */}
-          <div className="absolute -top-12 -right-2 w-24 h-24 bg-green-400 rounded-full border-[6px] border-white overflow-hidden shadow-xl transform rotate-12 z-20">
+          {/* 懸浮狗頭頭像 - 調整為 z-30 確保不被擋住 */}
+          <div className="absolute -top-12 -right-2 w-24 h-24 bg-green-400 rounded-full border-[6px] border-white overflow-hidden shadow-xl transform rotate-12 z-30">
             <img 
               src="/ew9.png" 
               alt="Dog" 
@@ -48,8 +49,7 @@ const ResultScreen: React.FC<ResultScreenProps> = ({ result, onBack }) => {
             />
           </div>
           
-          {/* 增加 pr-16 確保文字不會伸延到狗頭下方 */}
-          <p className="text-white font-bold text-2xl leading-relaxed italic pr-14 relative z-0">
+          <p className="text-white font-bold text-2xl leading-relaxed italic pr-14 relative z-10">
             "{result.aiReason || '揀咗咁耐，原來你想食呢啲？汪！'}"
           </p>
           
@@ -60,8 +60,8 @@ const ResultScreen: React.FC<ResultScreenProps> = ({ result, onBack }) => {
         </div>
       </div>
 
-      {/* 3. 底部按鈕區 */}
-      <div className="p-8 pb-12 flex flex-col gap-4 flex-shrink-0">
+      {/* 4. 底部按鈕區 - 固定在最底 */}
+      <div className="p-8 pb-10 flex flex-col gap-4 flex-shrink-0 bg-white z-20">
         <button 
           onClick={() => {
             const query = encodeURIComponent((result.categoryName || '') + ' 附近美食');
