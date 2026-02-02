@@ -38,11 +38,10 @@ const ResultScreen: React.FC<ResultScreenProps> = ({ result, onBack }) => {
           {/* 修正：懸浮狗頭頭像 - 調整定位避免過度遮擋 */}
           <div className="absolute -top-14 -right-2 w-24 h-24 bg-green-400 rounded-full border-[6px] border-white overflow-hidden shadow-xl transform rotate-12 z-10">
             <img 
-              src="/ew9.png" 
-              alt="Dog" 
-              className="w-full h-full object-contain p-2" 
-              onError={(e) => (e.currentTarget.src = 'https://via.placeholder.com/150')}
-            />
+  src="/ew9.png" 
+  alt="Dog" 
+  className="w-full h-full object-contain" 
+/>
           </div>
           
           {/* 修正：增加 pr-16 (Padding Right) 確保文字不會伸延到狗頭下方 */}

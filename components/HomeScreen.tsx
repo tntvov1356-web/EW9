@@ -43,7 +43,18 @@ const HomeScreen: React.FC<HomeScreenProps> = ({
               className="w-full h-full object-contain p-4" 
             />
           </div>
-
+{/* 修正後的圓圈圖片區域 */}
+<div className="w-64 h-64 rounded-full border-8 border-green-500 flex items-center justify-center overflow-hidden bg-white shadow-inner">
+  <img 
+    src="/ew9.png"  // 確保這張圖在你的 public 文件夾內
+    alt="App Logo" 
+    className="w-full h-full object-contain p-4"
+    onError={(e) => {
+      // 萬一圖片載入失敗的備份方案
+      e.currentTarget.src = 'https://via.placeholder.com/200?text=Doggy';
+    }}
+  />
+</div>
           {/* 狀態提示文字 */}
           <div className="mt-6 text-center">
             <p className="text-gray-400 font-bold tracking-widest uppercase text-sm">
