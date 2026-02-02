@@ -1,0 +1,7 @@
+{
+  "name": "Eatwhat9",
+  "description": "A fun food decision app helping you decide what to eat with a quirky mascot and restaurant finder.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
