@@ -37,11 +37,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({
             overflow-hidden transition-all duration-300
             ${isLoading ? 'animate-pulse opacity-70' : 'group-active:scale-95 group-hover:border-green-500'}
           `}>
-            <img 
-              src="/ew9.png" 
-              alt="Logo" 
-              className="w-full h-full object-contain p-4" 
-            />
+           
           </div>
 {/* 修正後的圓圈圖片區域 */}
 <div className="w-64 h-64 rounded-full border-8 border-green-500 flex items-center justify-center overflow-hidden bg-white shadow-inner">
