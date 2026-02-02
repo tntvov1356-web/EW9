@@ -55,7 +55,7 @@ const ResultScreen: React.FC<ResultScreenProps> = ({ result, onBack }) => {
           
           <div className="mt-8 flex items-center gap-3">
             <div className="h-[2px] w-12 bg-green-400" />
-            <span className="text-green-400 text-[12px] font-black uppercase tracking-widest">戇狗狗評價</span>
+            <span className="text-green-400 text-[12px] font-black uppercase tracking-widest">戇狗狗</span>
           </div>
         </div>
       </div>
