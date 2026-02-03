@@ -50,7 +50,7 @@ const FilterScreen: React.FC<FilterScreenProps> = ({
             type="text" 
             value={newCatName}
             onChange={(e) => setNewCatName(e.target.value)}
-            placeholder="輸入新菜式 (例如: 譚仔)"
+            placeholder="輸入新菜式 (例如: 食辣野)"
             className="flex-1 bg-gray-100 border-none rounded-2xl px-4 py-3 font-bold focus:ring-2 focus:ring-green-400 outline-none text-gray-700"
           />
           <button 
@@ -79,9 +79,9 @@ const FilterScreen: React.FC<FilterScreenProps> = ({
                 >
                   <span className="text-3xl">
                     {/* 這裡暫時用 Emoji 替代 Material Icons 確保能顯示 */}
-                    {cat.name === '燒肉' ? '🔥' : 
-                     cat.name === '漢堡' ? '🍔' : 
-                     cat.name === '壽司' ? '🍣' : '🍱'}
+                    {cat.name === '燒肉' ? '🍴' : 
+                     cat.name === '漢堡' ? '🍴' : 
+                     cat.name === '壽司' ? '🍴' : '🍴'}
                   </span>
                   <span className={`font-black text-sm ${isSelected ? 'text-green-600' : 'text-gray-400'}`}>
                     {cat.name}
