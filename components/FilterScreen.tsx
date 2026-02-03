@@ -39,9 +39,9 @@ const FilterScreen: React.FC<FilterScreenProps> = ({
           <h2 className="text-3xl font-black italic text-gray-800 leading-none">想食新嘢？汪！</h2>
           <button 
             onClick={onResetDefault}
-            className="text-[10px] font-bold text-red-400 border border-red-100 px-2 py-1 rounded-lg active:bg-red-50 transition-colors"
+            className="text-[10px] font-bold text-orange-400 border border-red-100 px-2 py-1 rounded-lg active:bg-red-50 transition-colors"
           >
-            🔄 恢復預設
+            恢復預設
           </button>
         </div>
         
