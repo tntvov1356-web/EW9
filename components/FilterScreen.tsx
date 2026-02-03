@@ -8,6 +8,7 @@ interface FilterScreenProps {
   onAddCustomCategory: (name: string) => void;
   onDeleteCategory: (id: string) => void;
   onSelectAll: () => void;
+  onResetDefault: () => void;
 }
 
 const FilterScreen: React.FC<FilterScreenProps> = ({ 
@@ -115,6 +116,20 @@ const FilterScreen: React.FC<FilterScreenProps> = ({
       </div>
     </div>
   );
+  
 };
+// 在返回的 JSX 中修改：
+<div className="p-6 pt-10 border-b border-gray-50 flex-shrink-0">
+  <div className="flex justify-between items-center mb-4">
+    <h2 className="text-3xl font-black italic text-gray-800">想食新嘢？汪！</h2>
+    <button 
+      onClick={onResetDefault}
+      className="text-[10px] font-bold text-gray-400 border border-gray-200 px-2 py-1 rounded-lg active:bg-gray-100"
+    >
+      🔄 恢復預設
+    </button>
+  </div>
+  {/* ... 輸入框代碼 */}
+</div>
 
 export default FilterScreen;
